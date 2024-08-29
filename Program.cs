@@ -8,15 +8,11 @@
             string text = File.ReadAllText(filename);
             SourceFile sourceFile = new SourceFile(filename, text);
             Scanner scanner = new Scanner(sourceFile);
+            Parser parser = new Parser(scanner);
 
             try
             {
-                while (true)
-                {
-                    Token token = scanner.Scan();
-                    if (token.Type == TokenType.End)
-                        break;
-                }
+                AstTop top = parser.Parse();
             }
             catch (CompilerException ex)
             {

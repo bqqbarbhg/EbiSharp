@@ -8,6 +8,8 @@ namespace EbiSharp
 {
     enum TokenType
     {
+        None,
+
         Identifier,
         NumberLiteral,
         HexLiteral,

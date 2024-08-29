@@ -130,6 +130,7 @@ namespace EbiSharp
                     while (IsIdent(Peek()))
                         Eat();
                     TokenType keywordToken;
+                    token.Location.Length = position - token.Location.Offset;
                     if (keywords.TryGetValue(token.Text, out keywordToken))
                         token.Type = keywordToken;
                     break;
