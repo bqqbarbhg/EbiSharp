@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "EbiSharp": {
+      "commandName": "Project",
+      "workingDirectory": "D:\\Dev\\EbiSharp"
+    }
+  }
+}

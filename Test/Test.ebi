@@ -1,0 +1,35 @@
+T take<T>(ref T t);
+
+class Thing
+{
+    Thing Next;
+}
+
+Thing a = new Thing();
+Thing b = new Thing();
+
+a.Next = take(b);
+b.Next = take(a);
+
+struct List<T>
+{
+    own T[] data;
+    int count;
+
+    void push(own T t)
+    {
+        if (data.Length == count) {
+            data = data.resize(max(count * 2, 1));
+        }
+        data[count] = move(t);
+        count += 1;
+    }
+
+    new T pop()
+    {
+        expect(count > 0, "Expected count to be larger than 1");
+        int index = count - 1;
+        count -= 1;
+        return take(data[index]);
+    }
+}
